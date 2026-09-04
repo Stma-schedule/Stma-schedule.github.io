@@ -1,0 +1,68 @@
+{
+  "_comment": "Bell times and non-school dates for STMA High School. Source: hs.stma.k12.mn.us/who-we-are/contact-hours (checked Sept 2026). Re-check that page if a date looks off — schools sometimes add snow days or adjust dates mid-year. Times are 24-hour \"H:MM\".",
+
+  "noSchoolDates": [
+    "2026-10-16", "2026-10-17",
+    "2026-11-04",
+    "2026-11-26", "2026-11-27", "2026-11-28",
+    "2026-12-22", "2026-12-23", "2026-12-24", "2026-12-25", "2026-12-26",
+    "2026-12-27", "2026-12-28", "2026-12-29", "2026-12-30", "2026-12-31",
+    "2027-01-01", "2027-01-02",
+    "2027-01-19",
+    "2027-02-05", "2027-02-06",
+    "2027-02-16",
+    "2027-03-06",
+    "2027-03-30", "2027-03-31", "2027-04-01", "2027-04-02", "2027-04-03",
+    "2027-05-25",
+    "2027-06-05"
+  ],
+
+  "lateStartDates": [],
+
+  "schedules": {
+    "noSnap": {
+      "label": "Monday/Wednesday/Friday · no SNAP",
+      "homeroom": { "start": "8:30", "end": "8:40" },
+      "period1":  { "start": "8:46", "end": "9:54" },
+      "period2":  { "start": "10:00", "end": "11:08" },
+      "period3": {
+        "A": { "lunchStart": "11:14", "lunchEnd": "11:44", "blockEnd": "12:52" },
+        "B": { "preStart": "11:14", "lunchStart": "11:36", "lunchEnd": "12:06", "blockEnd": "12:52" },
+        "C": { "preStart": "11:14", "lunchStart": "11:58", "lunchEnd": "12:28", "blockEnd": "12:52" },
+        "D": { "preStart": "11:14", "lunchStart": "12:22", "blockEnd": "12:52" }
+      },
+      "period4":  { "start": "12:58", "end": "14:06" },
+      "period5":  { "start": "14:12", "end": "15:20" }
+    },
+
+    "withSnap": {
+      "label": "Tuesday/Thursday · with SNAP",
+      "homeroom": { "start": "8:30", "end": "8:40" },
+      "period1":  { "start": "8:46", "end": "9:48" },
+      "period2":  { "start": "9:54", "end": "10:56" },
+      "snap":     { "start": "11:02", "end": "11:26" },
+      "period3": {
+        "A": { "lunchStart": "11:32", "lunchEnd": "12:02", "blockEnd": "13:04" },
+        "B": { "preStart": "11:32", "lunchStart": "11:52", "lunchEnd": "12:22", "blockEnd": "13:04" },
+        "C": { "preStart": "11:32", "lunchStart": "12:12", "lunchEnd": "12:42", "blockEnd": "13:04" },
+        "D": { "preStart": "11:32", "lunchStart": "12:34", "blockEnd": "13:04" }
+      },
+      "period4":  { "start": "13:10", "end": "14:12" },
+      "period5":  { "start": "14:18", "end": "15:20" }
+    },
+
+    "lateStart": {
+      "label": "Two-hour late start",
+      "period1":  { "start": "10:30", "end": "11:14" },
+      "period2":  { "start": "11:20", "end": "12:04" },
+      "period3": {
+        "A": { "lunchStart": "12:10", "lunchEnd": "12:40", "blockEnd": "13:40" },
+        "B": { "preStart": "12:10", "lunchStart": "12:30", "lunchEnd": "13:00", "blockEnd": "13:40" },
+        "C": { "preStart": "12:10", "lunchStart": "12:50", "lunchEnd": "13:20", "blockEnd": "13:40" },
+        "D": { "preStart": "12:10", "lunchStart": "13:10", "blockEnd": "13:40" }
+      },
+      "period4":  { "start": "13:46", "end": "14:30" },
+      "period5":  { "start": "14:36", "end": "15:20" }
+    }
+  }
+}

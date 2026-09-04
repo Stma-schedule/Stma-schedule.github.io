@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>STMA High School — Today's Schedule</title>
+<meta name="description" content="Live bell schedule for St. Michael-Albertville High School.">
+
+<!-- ============================================================
+     STMA LIVE SCHEDULE
+     Files:
+       index.html          — markup (this file)
+       styles.css           — all styling
+       app.js                — all logic
+       schedule-data.json  — bell times + calendar dates (edit this
+                              one when the school updates its schedule)
+     Data source: hs.stma.k12.mn.us/who-we-are/contact-hours
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="shield" aria-hidden="true"></div>
+      <div class="brand-text">
+        <div class="eyebrow">St. Michael–Albertville</div>
+        <h1>High School Schedule</h1>
+      </div>
+    </div>
+    <button class="settings-btn" id="changeLunchBtn" type="button" aria-label="Change lunch">
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
+      <span id="lunchLabel" class="settings-lunch-tag" hidden></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="status-card" aria-live="polite">
+      <div class="date" id="dateLine">—</div>
+      <p class="state" id="stateLine">Loading…</p>
+      <p class="sub" id="subLine"></p>
+      <div id="lunchPillWrap"></div>
+      <div class="clock">
+        <span>Central time</span>
+        <b id="clockNow">--:--</b>
+      </div>
+    </section>
+
+    <section class="timeline-card">
+      <h2 id="timelineTitle">Today's periods</h2>
+      <p class="sched-name" id="scheduleName">—</p>
+      <div class="timeline" id="timeline">
+        <div class="pointer" id="pointer" hidden></div>
+        <!-- segments injected by app.js -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Bell times from STMA High School's published
+    <a href="https://hs.stma.k12.mn.us/who-we-are/contact-hours" target="_blank" rel="noopener">schedules page</a>.
+    No-school and late-start dates live in <code>schedule-data.json</code> — double-check
+    the <a href="https://hs.stma.k12.mn.us/news/calendar" target="_blank" rel="noopener">school calendar</a>
+    if something looks off.
+  </footer>
+</div>
+
+<!-- ---------- lunch selection modal ---------- -->
+<div class="modal-backdrop" id="modalBackdrop" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <h2 id="modalTitle">Which lunch do you have?</h2>
+    <p>This decides when your Period 3 lunch block lands. It's saved in this browser so you won't be asked again.</p>
+    <div class="lunch-grid">
+      <button class="lunch-opt" data-lunch="A">A</button>
+      <button class="lunch-opt" data-lunch="B">B</button>
+      <button class="lunch-opt" data-lunch="C">C</button>
+      <button class="lunch-opt" data-lunch="D">D</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
